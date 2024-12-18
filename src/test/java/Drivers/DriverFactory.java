@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.Test;
 
 public class DriverFactory {
@@ -28,4 +29,16 @@ public class DriverFactory {
         driver.get("https://google.com");
         driver.quit();
     }
+
+
+    @Test
+    public void navigateTopageusingheadlessff(){
+        FirefoxOptions options=new FirefoxOptions();
+        options.addArguments("-headless");
+        WebDriver driver=new FirefoxDriver(options);
+        driver.get("https://google.com");
+        driver.quit();
+    }
+
+
 }

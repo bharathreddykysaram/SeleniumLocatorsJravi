@@ -30,7 +30,8 @@ public class demoqaMouseActions {
      //   driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         WebElement menu=driver.findElement(By.xpath("//a[text()='Main Item 2']"));
         Actions actions=new Actions(driver);
-        ((JavascriptExecutor)driver).executeScript("window.scrollTo(0, document.body.scrollHeight / 3");
+        ((JavascriptExecutor)driver).executeScript(
+                "window.scrollTo(0, document.body.scrollHeight / 3)");
         actions.moveToElement(menu).perform();
         NavigationTest.delay();
         WebElement subel1=menu.findElement(By.xpath("//a[text()='Sub Item']"));
@@ -40,11 +41,12 @@ public class demoqaMouseActions {
         Assert.assertTrue(subel2.isDisplayed());
         Assert.assertTrue(subel3.isDisplayed());
 
-        Actions action=new Actions(driver) ;
-        //action.moveToElement(fashion);
-        NavigationTest.delay();
-       // action.moveToElement(topwear);
+        actions.moveToElement(subel3).perform();
+        WebElement subelitem1=menu.findElement(By.xpath("//a[text()='Sub Sub Item 1']"));
+        WebElement subelitem2=menu.findElement(By.xpath("//a[text()='Sub Sub Item 2']"));
 
+        Assert.assertTrue(subelitem1.isDisplayed());
+        Assert.assertTrue(subelitem2.isDisplayed());
 
     }
 
